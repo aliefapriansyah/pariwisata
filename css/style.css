@@ -1,1 +1,56 @@
-css todo
+/* Variable */
+:root {
+    --primary: #f2f2f2;
+    --secondary: rgb(81, 201, 131);
+}
+
+/* Reset */
+body,
+p,
+a,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* Base Styles */
+body {
+    background: var(--primary);
+    overflow: hidden;
+}
+
+.button {
+    background: var(--secondary);
+    padding: 10px 16px;
+    border: 2px solid var(--primary);
+    box-shadow: 1px 2px 3px #222222;
+    text-transform: uppercase;
+}
+
+input,
+textarea {
+    background: var(--primary);
+    padding: 10px 16px;
+    /* border-radius: 2px; */
+    border: 2px solid var(--secondary);
+    display: inline-block;
+}
+
+/* Fonts */
+
+/* Mobile Styles */
+
+/* Small Tablet Styles */
+@media screen and (min-width: 620px) {}
+
+/* Large Tablet Styles */
+@media screen and (min-width: 960px) {}
+
+/* Desktop Styles */
+@media screen and (min-width: 1200px) {}
