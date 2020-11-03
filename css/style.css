@@ -22,7 +22,7 @@ li {
 /* Base Styles */
 body {
     background: var(--primary);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 h1,
@@ -32,6 +32,7 @@ h3 {
     font-family: 'Bebas Neue', cursive;
     color: var(--primary);
 }
+
 
 li {
     list-style-type: none;
@@ -66,3 +67,16 @@ textarea {
 
 /* Desktop Styles */
 @media screen and (min-width: 1200px) {}
+
+/* Grid testing */
+.wisata-pilihan {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.wisata-pilihan a {
+    text-align: center;
+    background: gray;
+    padding: 20px;
+}
