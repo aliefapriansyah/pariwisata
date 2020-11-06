@@ -1,0 +1,317 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Teko');
+
+
+/* Variable */
+:root {
+    --gradient: rgba(0, 0, 0, 0.1);
+    --primary: #466900;
+    --secondary: #A1C433;
+    --dark: #264D34;
+    --dark-medium: #547239;
+    --mobile-carousel-height: 320px;
+    --mobile-carousel-width: 320px;
+}
+
+/* Reset */
+body,
+p,
+a,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* Base Styles */
+body {
+    background: var(--primary);
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Teko';
+    color: #dbffe1;
+    font-weight: normal;
+    line-height: 1.4em;
+}
+
+p,
+a,
+li {
+    color: #dbffe1;
+    line-height: 1.4em;
+    font-size: 1em;
+}
+
+h1,
+h3 {
+    font-size: 1.6em;
+}
+
+h2 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+.leading {
+    font-size: 1.1em;
+}
+
+li,
+ul {
+    list-style: none;
+}
+
+input,
+textarea {
+    background: var(--primary);
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: 2px solid var(--secondary);
+    display: inline-block;
+    font-size: 1em;
+}
+
+::placeholder {
+    color: white;
+}
+
+.button {
+    background: none;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 1px 2px 3px var(--gradient);
+    display: inline-block;
+    font-size: 1em;
+}
+
+.button:hover {
+    color: #222;
+    background: var(--secondary);
+}
+
+
+/* Mobile Styles */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+}
+
+.site-nav {
+    margin: 0 20px;
+}
+
+
+.site-nav h1 {
+    grid-column: 1/4;
+    grid-row: 1;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--secondary);
+    display: inline-block;
+}
+
+.site-nav ul {
+    display: none;
+}
+
+
+.wrap {
+    position: relative;
+    width: var(--mobile-carousel-width);
+    height: var(--mobile-carousel-height);
+    margin: 0 auto;
+    box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.window {
+    overflow: hidden;
+    position: relative;
+    background: var(--secondary);
+}
+
+#carousel {
+    width: 10000px;
+    position: relative;
+    justify-content: center;
+    top: 0;
+    left: -640px;
+}
+
+.slide {
+    height: 320px;
+    width: 530px;
+    cursor: pointer;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.slide#b1 {
+    background-image: linear-gradient(var(--gradient), var(--gradient)), url("assets/air-panas.jpg");
+    background-size: cover;
+}
+
+.slide#b2 {
+    background-image: linear-gradient(var(--gradient), var(--gradient)), url("assets/petung-sewu.jpg");
+    background-size: cover;
+}
+
+.slide#b3 {
+    background-image: linear-gradient(var(--gradient), var(--gradient)), url("assets/coban-canggu.jpeg");
+    background-size: cover;
+}
+
+.slide p {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px;
+}
+
+#prev,
+#next {
+    cursor: pointer;
+    position: absolute;
+    font-size: 40px;
+    top: 160px;
+    padding: 5px;
+    color: #dbffe1;
+    background: var(--dark);
+}
+
+#prev {
+    left: 0
+}
+
+#next {
+    right: 0
+}
+
+
+.transition {
+    transition: .7s;
+}
+
+
+#wisata-pilihan {
+    padding: 20px 10px;
+    background: var(--dark);
+}
+
+#wisata-pilihan h3 {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#wisata-pilihan ul {
+    margin: 40px 0;
+}
+
+#wisata-pilihan li {
+    list-style: none;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    grid-column: span 8;
+    text-align: center;
+}
+
+#wisata-pilihan img {
+    width: 280px;
+    height: 200px;
+    margin: 5px auto;
+}
+
+#wisata-pilihan p {
+    text-align: center;
+}
+
+#wisata-pilihan .leading {
+    text-align: left;
+}
+
+#contact {
+    padding: 20px 10px;
+    background: var(--dark-medium);
+}
+
+#contact h3,
+#contact p {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#contact form {
+    width: 80%;
+    max-width: 300px;
+    margin: 5px auto;
+    text-align: center;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    margin: 5px 0;
+}
+
+#contact textarea {
+    max-width: 100%;
+    height: 200px;
+}
+
+#contact .button {
+    margin-top: 10px;
+}
+
+footer {
+    border-top: var(--secondary) solid 3px;
+    padding: 20px 10px;
+    background: #222222;
+}
+
+footer .copyright {
+    grid-column: 1/3;
+    font-size: .8em;
+}
+
+footer .social {
+    grid-column: 7/9;
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer li {
+    margin: 0 6px;
+}
+
+
+
+/* Small Tablet Styles */
+@media screen and (min-width: 620px) {}
+
+/* Large Tablet Styles */
+@media screen and (min-width: 960px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1200px) {
+
+    body {
+        font-size: 20px;
+    }
+}
