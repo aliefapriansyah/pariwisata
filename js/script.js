@@ -1,52 +1,87 @@
-var carousel = $('#carousel'),
-    threshold = 20,
-    slideWidth = 600,
-    dragStart,
-    dragEnd;
-
-$('#next').click(function () {
-    shiftSlide(-1)
-})
-$('#prev').click(function () {
-    shiftSlide(1)
-})
-
-carousel.on('mousedown', function () {
-    if (carousel.hasClass('transition')) return;
-    dragStart = event.pageX;
-    $(this).on('mousemove', function () {
-        dragEnd = event.pageX;
-        $(this).css('transform', 'translateX(' + dragPos() + 'px)')
-    })
-    $(document).on('mouseup', function () {
-        if (dragPos() > threshold) {
-            return shiftSlide(1)
+$(document).ready(function(){
+    $("#slideshow > div:gt(0)").hide();
+    
+    var buttons = "<button class=\"slidebtn prev\"><li class=\"prev-next-icon\">&#8249;</li></button><button class=\"slidebtn next\"><li class=\"prev-next-icon\">&#8250;</li></button\>";
+    
+    var slidesl = $('.slideitem').length
+    
+    // make dots
+    var d = "<li class=\"dot active-dot\">&bull;</li>";
+    for (var i = 1; i < slidesl; i++) {
+        d = d+"<li class=\"dot\">&bull;</li>";
+    }	
+    var dots = "<ul class=\"slider-dots\">" + d + "</ul\>";
+    
+    $("#slideshow").append(dots).append(buttons);
+    var interval = setInterval(slide, 3000);
+    
+    function intslide(func) {
+        if (func == 'start') {
+            interval = setInterval(slide, 3000);
+        } else {
+            clearInterval(interval);		
         }
-        if (dragPos() < -threshold) {
-            return shiftSlide(-1)
-        }
-        shiftSlide(0);
-    })
+    }
+    
+    function slide() {
+            sact('next', 0, 1200);
+    }
+
+    function sact(a, ix, it) {
+            var currentSlide = $('.current');
+            var nextSlide = currentSlide.next('.slideitem');
+            var prevSlide = currentSlide.prev('.slideitem');
+            var reqSlide = $('.slideitem').eq(ix);
+    
+            var currentDot = $('.active-dot');
+            var nextDot = currentDot.next();
+            var prevDot = currentDot.prev();
+            var reqDot = $('.dot').eq(ix);
+            
+            if (nextSlide.length == 0) {
+                nextDot = $('.dot').first();
+                nextSlide = $('.slideitem').first();
+            }
+    
+            if (prevSlide.length == 0) {
+                prevDot = $('.dot').last();
+                prevSlide = $('.slideitem').last();
+            }
+                
+            if (a == 'next') {
+                var Slide = nextSlide;
+                var Dot = nextDot;
+            } else if (a == 'prev') {
+                var Slide = prevSlide;
+                var Dot = prevDot;
+            } else {
+                var Slide = reqSlide;
+                var Dot = reqDot;
+            }
+            currentSlide.fadeOut(it).removeClass('current');
+            Slide.fadeIn(it).addClass('current');
+            
+            currentDot.removeClass('active-dot');
+            Dot.addClass('active-dot');
+    }	
+    
+    $('.next').on('click', function(){
+            intslide('stop');						
+            sact('next', 0, 400);
+            intslide('start');						
+        });//next
+    
+    $('.prev').on('click', function(){
+            intslide('stop');						
+            sact('prev', 0, 400);
+            intslide('start');						
+        });//prev
+    
+    $('.dot').on('click', function(){
+            intslide('stop');
+            var index  = $(this).index();
+            sact('dot', index, 400);
+            intslide('start');
+        });//prev
+    //slideshow
 });
-
-function dragPos() {
-    return dragEnd - dragStart;
-}
-
-function shiftSlide(direction) {
-    if (carousel.hasClass('transition')) return;
-    dragEnd = dragStart;
-    $(document).off('mouseup')
-    carousel.off('mousemove')
-        .addClass('transition')
-        .css('transform', 'translateX(' + (direction * slideWidth) + 'px)');
-    setTimeout(function () {
-        if (direction === 1) {
-            $('.slide:first').before($('.slide:last'));
-        } else if (direction === -1) {
-            $('.slide:last').after($('.slide:first'));
-        }
-        carousel.removeClass('transition')
-        carousel.css('transform', 'translateX(0px)');
-    }, 700)
-}

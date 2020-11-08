@@ -9,8 +9,9 @@
     --secondary: #A1C433;
     --dark: #264D34;
     --dark-medium: #547239;
-    --mobile-carousel-height: 320px;
-    --mobile-carousel-width: 320px;
+    /* img on slider */
+    --img-height: calc(100vw / 3.24);
+    --img-height-mobile: calc(100vw / 2.2);
 }
 
 /* Reset */
@@ -96,11 +97,112 @@ textarea {
     font-size: 1em;
 }
 
-.button:hover {
-    color: #222;
-    background: var(--secondary);
+/* carousel */
+
+#slideshow {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    padding: 1% 1% 56.25% 1%;
+    /*56.25 is for 16x9 resolution*/
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
 }
 
+#slideshow>span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+#slideshow>span>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+#slideshow:hover i,
+#slideshow:hover .slider-dots {
+    opacity: 1;
+}
+
+.slidebtn {
+    z-index: 99;
+    background: transparent;
+    outline: none;
+    border: none;
+    transition: all 0.5s;
+
+}
+
+.slidebtn:active,
+.slidedtn:focus {
+    outline: none;
+}
+
+.slidebtn i {
+    color: #fff;
+    font-size: 72px;
+    opacity: 0.2;
+    transition: all 0.5s;
+
+}
+
+.prev-next-icon {
+    background: var(--dark);
+    cursor: pointer;
+    font-size: 40px;
+    padding: 5px;
+    color: #dbffe1;
+}
+
+.prev {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+}
+
+.next {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+.slider-dots {
+    opacity: 0.2;
+    list-style: none;
+    display: inline-block;
+    padding-left: 0;
+    margin-bottom: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 3%;
+    transform: translate(-50%, 0);
+    z-index: 99;
+    transition: all 0.5s;
+
+}
+
+.slider-dots li {
+    color: #000;
+    display: inline;
+    font-size: 48px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.slider-dots li.active-dot {
+    color: #fff;
+}
+
+/* end carousel */
 
 /* Mobile Styles */
 .grid {
@@ -127,91 +229,13 @@ textarea {
 }
 
 
-.wrap {
-    position: relative;
-    width: var(--mobile-carousel-width);
-    height: var(--mobile-carousel-height);
-    margin: 0 auto;
-    box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.25);
-}
-
-.window {
-    overflow: hidden;
-    position: relative;
-    background: var(--secondary);
-}
-
-#carousel {
-    width: 10000px;
-    position: relative;
-    justify-content: center;
-    top: 0;
-    left: -640px;
-}
-
-.slide {
-    height: 320px;
-    width: 530px;
-    cursor: pointer;
-    float: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.2em;
-}
-
-.slide#b1 {
-    background-image: linear-gradient(var(--gradient), var(--gradient)), url("assets/air-panas.jpg");
-    background-size: cover;
-}
-
-.slide#b2 {
-    background-image: linear-gradient(var(--gradient), var(--gradient)), url("assets/petung-sewu.jpg");
-    background-size: cover;
-}
-
-.slide#b3 {
-    background-image: linear-gradient(var(--gradient), var(--gradient)), url("assets/coban-canggu.jpeg");
-    background-size: cover;
-}
-
-.slide p {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2px;
-}
-
-#prev,
-#next {
-    cursor: pointer;
-    position: absolute;
-    font-size: 40px;
-    top: 160px;
-    padding: 5px;
-    color: #dbffe1;
-    background: var(--dark);
-}
-
-#prev {
-    left: 0
-}
-
-#next {
-    right: 0
-}
-
-
-.transition {
-    transition: .7s;
-}
-
-
 #wisata-pilihan {
     padding: 20px 10px;
     background: var(--dark);
 }
 
 #wisata-pilihan h3 {
+    margin-top: 15px;
     margin-bottom: 0;
     text-align: center;
 }
@@ -297,6 +321,9 @@ footer li {
 }
 
 
+
+/* Large mobile Styles */
+@media screen and (min-width: 420px) {}
 
 /* Small Tablet Styles */
 @media screen and (min-width: 620px) {}
