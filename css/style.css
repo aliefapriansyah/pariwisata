@@ -248,7 +248,7 @@ textarea {
     list-style: none;
     padding: 10px;
     background: rgba(0, 0, 0, 0.2);
-    grid-column: span 8;
+    grid-column: span 4;
     text-align: center;
 }
 
@@ -319,11 +319,6 @@ footer .social {
 footer li {
     margin: 0 6px;
 }
-
-
-
-/* Large mobile Styles */
-@media screen and (min-width: 420px) {}
 
 /* Small Tablet Styles */
 @media screen and (min-width: 620px) {}
