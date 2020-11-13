@@ -356,20 +356,20 @@ textarea {
   background: var(--dark-medium);
 }
 
-#contact,
+#contact h3,
 #order h3 {
   border-bottom: var(--secondary) 2px solid;
 }
 
-#contact,
+#contact h3,
 #order h3,
-#contact,
+#contact p,
 #order p {
   margin-bottom: 0;
   text-align: center;
 }
 
-#contact,
+#contact form,
 #order form {
   width: 80%;
   max-width: 300px;
@@ -377,21 +377,21 @@ textarea {
   text-align: center;
 }
 
-#contact,
+#contact input,
 #order input,
-#contact,
+#contact textarea,
 #order textarea {
   width: 100%;
   margin: 5px 0;
 }
 
-#contact,
+#contact textarea,
 #order textarea {
   max-width: 100%;
   height: 200px;
 }
 
-#contact,
+#contact .button,
 #order .button {
   margin-top: 10px;
 }
