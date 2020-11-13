@@ -204,6 +204,14 @@ textarea {
 }
 
 /* end carousel */
+#about {
+    padding: 30px 20px;
+    background: var(--dark);
+    text-align: center;
+}
+#about h1 {
+    border-bottom: var(--secondary) 2px solid;
+}
 
 /* Mobile Styles */
 .grid {
@@ -238,6 +246,7 @@ textarea {
 #recomends h3 {
     margin-top: 15px;
     margin-bottom: 0;
+    border-bottom: var(--secondary) 2px solid;
     text-align: center;
 }
 
@@ -268,6 +277,10 @@ textarea {
 #contact {
     padding: 30px 20px;
     background: var(--dark-medium);
+}
+
+#contact h3 {
+    border-bottom: var(--secondary) 2px solid;
 }
 
 #contact h3,
