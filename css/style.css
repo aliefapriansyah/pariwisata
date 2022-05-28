@@ -3,9 +3,9 @@
 
 /* Variable */
 :root {
-  --gradient: rgba(0, 0, 0, 0.1);
-  --primary: #466900;
-  --secondary: #a1c433;
+  --gradient: rgba(238, 234, 17, 0.904);
+  --primary: #0f0f0cf1;
+  --secondary: #8a881c;
   --dark: #264d34;
   --dark-medium: #547239;
   /* img on slider */
